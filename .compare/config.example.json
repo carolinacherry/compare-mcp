@@ -1,0 +1,52 @@
+{
+  "providers": {
+    "claude": {
+      "enabled": true,
+      "type": "anthropic",
+      "api_key": "$ANTHROPIC_API_KEY",
+      "model": "claude-opus-4-5"
+    },
+    "openai": {
+      "enabled": true,
+      "type": "openai_compat",
+      "api_key": "$OPENAI_API_KEY",
+      "model": "gpt-4o",
+      "base_url": "https://api.openai.com/v1"
+    },
+    "kimi": {
+      "enabled": false,
+      "type": "openai_compat",
+      "api_key": "$MOONSHOT_API_KEY",
+      "model": "moonshot-v1-auto",
+      "base_url": "https://api.moonshot.ai/v1"
+    },
+    "minimax": {
+      "enabled": false,
+      "type": "openai_compat",
+      "api_key": "$MINIMAX_API_KEY",
+      "model": "MiniMax-Text-01",
+      "base_url": "https://api.minimax.io/v1"
+    },
+    "gemini": {
+      "enabled": false,
+      "type": "openai_compat",
+      "api_key": "$GEMINI_API_KEY",
+      "model": "gemini-2.5-pro",
+      "base_url": "https://generativelanguage.googleapis.com/v1beta/openai/"
+    },
+    "ollama": {
+      "enabled": false,
+      "type": "cli",
+      "cli_command": "ollama",
+      "cli_args": ["run", "codellama"],
+      "cli_parser": "text"
+    }
+  },
+  "compare": {
+    "max_tokens": 2048,
+    "timeout_seconds": 120,
+    "db_path": "~/.compare/todos.sqlite",
+    "dedup_threshold": 0.65,
+    "max_file_lines": 1000
+  }
+}

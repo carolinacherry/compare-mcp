@@ -1,0 +1,42 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "compare-mcp"
+version = "0.1.1"
+description = "Multi-model code review with ranked todos and subagent dispatch, inside Claude Code CLI"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+authors = [{ name = "carolinacherry" }]
+keywords = ["mcp", "code-review", "multi-model", "claude-code"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+]
+dependencies = [
+    "mcp>=1.0",
+    "anthropic>=0.25",
+    "openai>=1.30",
+    "rapidfuzz>=3.0",
+    "aiosqlite>=0.20",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "ruff>=0.4",
+]
+
+[project.scripts]
+compare-mcp = "compare_mcp.server:main"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
